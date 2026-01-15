@@ -1,0 +1,202 @@
+/* -------------------- Reset -------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* -------------------- Header -------------------- */
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+header p {
+  font-size: 1em;
+  color: #ecf0f1;
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+/* -------------------- Intro -------------------- */
+.intro {
+  background: #ecf0f1;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.intro h2 {
+  color: #2980b9;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  font-size: 1.1em;
+}
+
+.intro .name {
+  color: red;
+  font-weight: bold;
+}
+
+/* -------------------- Menu -------------------- */
+.menu {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.menu select {
+  padding: 8px 12px;
+  font-size: 1em;
+  border-radius: 5px;
+}
+
+/* TD & Content Menu Buttons */
+.td-menu,
+.content-menu {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.td-menu button,
+.content-menu button {
+  padding: 12px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.td-menu button {
+  background: #2980b9;
+  color: white;
+}
+
+.td-menu button:hover {
+  background: #1abc9c;
+}
+
+.content-menu button {
+  background: #34495e;
+  color: white;
+}
+
+.content-menu button:hover {
+  background: #1abc9c;
+}
+
+/* Bouton actif */
+button.active {
+  background: #e74c3c !important;
+}
+
+/* -------------------- Sections -------------------- */
+.td-section,
+.content-section {
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin: 20px 0;
+  padding: 20px;
+  display: none;
+}
+
+.td-section h2,
+.content-section h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #2980b9;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.exercise h3,
+.solution h3 {
+  color: #2980b9;
+  margin-bottom: 10px;
+}
+
+ol,
+ul {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+li {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #c0392b;
+  text-decoration: underline;
+}
+
+/* -------------------- Contact -------------------- */
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  margin-right: 15px;
+  font-size: 1.5em;
+  color: #2980b9;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #c0392b;
+}
+
+/* -------------------- Footer -------------------- */
+footer {
+  background: #ecf0f1;
+  text-align: center;
+  padding: 15px 0;
+  border-top: 3px solid #bdc3c7;
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 600px) {
+  .td-menu button,
+  .content-menu button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
+
+  .container {
+    width: 95%;
+  }
+}

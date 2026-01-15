@@ -4,27 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TD Mécanique Rationnelle - Multilingue</title>
+
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
 <header>
   <div class="container" style="text-align:center;">
-    <img src="enstp_logo.png" alt="ENSTP Logo" class="logo" />
+    <img src="images/enstp_logo.png" class="logo" alt="ENSTP Logo">
     <h1>National School of Built and Ground Works Engineering</h1>
-    <p>Preparatory Classes in Science and Technology (2nd Year ENSTP) — Kouba, Algiers 2025/2026</p>
+    <p>Preparatory Classes in Science and Technology (2nd Year) — Kouba, Algiers 2025/2026</p>
   </div>
 </header>
 
 <section class="intro">
   <div class="container">
-    <h2 data-fr="TD Mécanique Rationnelle" data-en="Rational Mechanics TD" data-ar="الأعمال الموجهة في ميكانيك الأجسام الصلبة">
+    <h2 data-fr="TD Mécanique Rationnelle"
+        data-en="Rational Mechanics TD"
+        data-ar="الأعمال الموجهة في ميكانيك الأجسام الصلبة">
       TD Mécanique Rationnelle
     </h2>
-    <p class="enseignants">
-      <span data-fr="Chargé d'enseignement TD" data-en="TD Instructor" data-ar="أستاذ الأعمال الموجهة">Chargé d'enseignement TD</span>
+    <p>
+      <span data-fr="Chargé d'enseignement TD"
+            data-en="TD Instructor"
+            data-ar="أستاذ الأعمال الموجهة"></span>
       <strong> Mr Assas Taqiyeddine </strong> |
-      <span data-fr="Chargé de cours" data-en="Course Instructor" data-ar="أستاذة الدرس">Chargé de cours</span>
+      <span data-fr="Chargé de cours"
+            data-en="Course Instructor"
+            data-ar="أستاذة الدرس"></span>
       <strong> Mme Zouadi Nabila </strong>
     </p>
   </div>
@@ -32,7 +40,7 @@
 
 <nav class="menu">
   <div class="container">
-    <label for="lang">Langue :</label>
+    <label data-fr="Langue :" data-en="Language :" data-ar="اللغة :">Langue :</label>
     <select id="lang" onchange="changeLanguage(this.value)">
       <option value="fr">Français 🇫🇷</option>
       <option value="en">English 🇬🇧</option>
@@ -41,24 +49,38 @@
   </div>
 </nav>
 
-<!-- ===== SEMESTRE MENUS ===== -->
+<!-- ================= SEMESTRES ================= -->
+
 <section class="td-menu container">
-  <strong data-fr="Semestre 03" data-en="Semester 03" data-ar="الفصل الدراسي 03">Semestre 03:</strong>
-  <button onclick="showTD('td1')" data-fr="TD N°01" data-en="TD No.01" data-ar="السلسلة 01">TD N°01</button>
-  <button onclick="showTD('td2')" data-fr="TD N°02" data-en="TD No.02" data-ar="السلسلة 02">TD N°02</button>
-  <button onclick="showTD('td3')" data-fr="TD N°03" data-en="TD No.03" data-ar="السلسلة 03">TD N°03</button>
-  <button onclick="showTD('td4')" data-fr="TD N°04" data-en="TD No.04" data-ar="السلسلة 04">TD N°04</button>
+  <button class="sem-btn" onclick="toggleSemestre('s3')"
+    data-fr="Semestre 03" data-en="Semester 03" data-ar="الفصل الدراسي 03">
+    Semestre 03
+  </button>
+
+  <div id="s3" class="semestre-content">
+    <button onclick="showTD('td1')">TD N°01</button>
+    <button onclick="showTD('td2')">TD N°02</button>
+    <button onclick="showTD('td3')">TD N°03</button>
+    <button onclick="showTD('td4')">TD N°04</button>
+  </div>
 </section>
 
 <section class="td-menu container">
-  <strong data-fr="Semestre 04" data-en="Semester 04" data-ar="الفصل الدراسي 04">Semestre 04:</strong>
-  <button onclick="showTD('td5')" data-fr="TD N°05" data-en="TD No.05" data-ar="السلسلة 05">TD N°05</button>
-  <button onclick="showTD('td6')" data-fr="TD N°06" data-en="TD No.06" data-ar="السلسلة 06">TD N°06</button>
-  <button onclick="showTD('td7')" data-fr="TD N°07" data-en="TD No.07" data-ar="السلسلة 07">TD N°07</button>
-  <button onclick="showTD('td8')" data-fr="TD N°08" data-en="TD No.08" data-ar="السلسلة 08">TD N°08</button>
+  <button class="sem-btn" onclick="toggleSemestre('s4')"
+    data-fr="Semestre 04" data-en="Semester 04" data-ar="الفصل الدراسي 04">
+    Semestre 04
+  </button>
+
+  <div id="s4" class="semestre-content">
+    <button onclick="showTD('td5')">TD N°05</button>
+    <button onclick="showTD('td6')">TD N°06</button>
+    <button onclick="showTD('td7')">TD N°07</button>
+    <button onclick="showTD('td8')">TD N°08</button>
+  </div>
 </section>
 
-<!-- ===== CONTENT MENU ===== -->
+<!-- ================= CONTENT MENU ================= -->
+
 <section class="content-menu container">
   <button onclick="showContent('cours')" data-fr="Cours" data-en="Course" data-ar="الدروس">Cours</button>
   <button onclick="showContent('cc')" data-fr="Contrôle Continu" data-en="Continuous Assessment" data-ar="المراقبة المستمرة">Contrôle Continu</button>
@@ -68,155 +90,34 @@
 
 <!-- ================= TD SECTIONS ================= -->
 
-<!-- ===== TD 01 ===== -->
 <section id="td1" class="td-section container">
-  <h2 data-fr="TD N°01 : Les outils mathématiques (Opérations sur les vecteurs)" 
+  <h2 data-fr="TD N°01 : Les outils mathématiques (Opérations sur les vecteurs)"
       data-en="TD No.01: Mathematical tools (Vector operations)"
-      data-ar="السلسلة 01 : أدوات رياضية هندسية (عمليات على الأشعة)">
-      TD N°01
-  </h2>
-  <div class="exercise">
-    <h3 data-fr="Exercices" data-en="Exercises" data-ar="التمارين">Exercices</h3>
-    <p><a href="exercices/td1_exercices.pdf" target="_blank">Fichier PDF des exercices</a></p>
-  </div>
-  <div class="solution">
-    <h3 data-fr="Solutions" data-en="Solutions" data-ar="الحلول">Solutions</h3>
-    <ul>
-      <li><a href="solutions/td1_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td1_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
-  </div>
+      data-ar="السلسلة 01 : أدوات رياضية (عمليات على الأشعة)"></h2>
 </section>
 
-<!-- ===== TD 02 ===== -->
 <section id="td2" class="td-section container">
-  <h2 data-fr="TD N°02 : Moments des forces" 
+  <h2 data-fr="TD N°02 : Moments des forces"
       data-en="TD No.02: Moments of forces"
-      data-ar="السلسلة 02 : عزم القوى">
-      TD N°02
-  </h2>
-  <div class="exercise">
-    <h3 data-fr="Exercices" data-en="Exercises" data-ar="التمارين">Exercices</h3>
-    <p><a href="exercices/td2_exercices.pdf" target="_blank">Fichier PDF des exercices</a></p>
-  </div>
-  <div class="solution">
-    <h3 data-fr="Solutions" data-en="Solutions" data-ar="الحلول">Solutions</h3>
-    <ul>
-      <li><a href="solutions/td2_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td2_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
-  </div>
+      data-ar="السلسلة 02 : عزم القوى"></h2>
 </section>
 
-<!-- ===== TD 03 ===== -->
 <section id="td3" class="td-section container">
-  <h2 data-fr="TD N°03 : Les Torseurs" 
+  <h2 data-fr="TD N°03 : Les Torseurs"
       data-en="TD No.03: Torques"
-      data-ar="السلسلة 03 : مخططات عزومي">
-      TD N°03
-  </h2>
-  <div class="exercise">
-    <h3 data-fr="Exercices" data-en="Exercises" data-ar="التمارين">Exercices</h3>
-    <p><a href="exercices/td3_exercices.pdf" target="_blank">Fichier PDF des exercices</a></p>
-  </div>
-  <div class="solution">
-    <h3 data-fr="Solutions" data-en="Solutions" data-ar="الحلول">Solutions</h3>
-    <ul>
-      <li><a href="solutions/td3_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td3_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
-  </div>
+      data-ar="السلسلة 03 : المخططات العزمية"></h2>
 </section>
 
-<!-- ===== TD 04 ===== -->
 <section id="td4" class="td-section container">
-  <h2 data-fr="TD N°04 : Statique des solides" 
-      data-en="TD No.04: Solid Statics"
-      data-ar="السلسلة 04 : سكون المواد الصلبة">
-      TD N°04
-  </h2>
-  <div class="exercise">
-    <h3 data-fr="Exercices" data-en="Exercises" data-ar="التمارين">Exercices</h3>
-    <p><a href="exercices/td4_exercices.pdf" target="_blank">Fichier PDF des exercices</a></p>
-  </div>
-  <div class="solution">
-    <h3 data-fr="Solutions" data-en="Solutions" data-ar="الحلول">Solutions</h3>
-    <ul>
-      <li><a href="solutions/td4_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td4_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== TD 05 ===== -->
-<section id="td5" class="td-section container">
-  <h2 data-fr="TD N°05 : Titre TD 05" data-en="TD No.05: Title TD 05" data-ar="السلسلة 05 : عنوان TD 05">TD N°05</h2>
-  <div class="exercise">
-    <h3 data-fr="Exercices" data-en="Exercises" data-ar="التمارين">Exercices</h3>
-    <p><a href="exercices/td5_exercices.pdf" target="_blank">Fichier PDF des exercices</a></p>
-  </div>
-  <div class="solution">
-    <h3 data-fr="Solutions" data-en="Solutions" data-ar="الحلول">Solutions</h3>
-    <ul>
-      <li><a href="solutions/td5_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td5_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== TD 06 ===== -->
-<section id="td6" class="td-section container">
-  <h2 data-fr="TD N°06 : Titre TD 06" data-en="TD No.06: Title TD 06" data-ar="السلسلة 06 : عنوان TD 06">TD N°06</h2>
-  <div class="exercise">
-    <h3 data-fr="Exercices" data-en="Exercises" data-ar="التمارين">Exercices</h3>
-    <p><a href="exercices/td6_exercices.pdf" target="_blank">Fichier PDF des exercices</a></p>
-  </div>
-  <div class="solution">
-    <h3 data-fr="Solutions" data-en="Solutions" data-ar="الحلول">Solutions</h3>
-    <ul>
-      <li><a href="solutions/td6_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td6_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== TD 07 ===== -->
-<section id="td7" class="td-section container">
-  <h2 data-fr="TD N°07 : Titre TD 07" data-en="TD No.07: Title TD 07" data-ar="السلسلة 07 : عنوان TD 07">TD N°07</h2>
-  <div class="exercise">
-    <h3 data-fr="Exercices" data-en="Exercises" data-ar="التمارين">Exercices</h3>
-    <p><a href="exercices/td7_exercices.pdf" target="_blank">Fichier PDF des exercices</a></p>
-  </div>
-  <div class="solution">
-    <h3 data-fr="Solutions" data-en="Solutions" data-ar="الحلول">Solutions</h3>
-    <ul>
-      <li><a href="solutions/td7_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td7_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== TD 08 ===== -->
-<section id="td8" class="td-section container">
-  <h2 data-fr="TD N°08 : Titre TD 08" data-en="TD No.08: Title TD 08" data-ar="السلسلة 08 : عنوان TD 08">TD N°08</h2>
-  <div class="exercise">
-    <h3 data-fr="Exercices" data-en="Exercises" data-ar="التمارين">Exercices</h3>
-    <p><a href="exercices/td8_exercices.pdf" target="_blank">Fichier PDF des exercices</a></p>
-  </div>
-  <div class="solution">
-    <h3 data-fr="Solutions" data-en="Solutions" data-ar="الحلول">Solutions</h3>
-    <ul>
-      <li><a href="solutions/td8_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td8_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
-  </div>
+  <h2 data-fr="TD N°04 : Statique des solides"
+      data-en="TD No.04: Solid statics"
+      data-ar="السلسلة 04 : سكون الأجسام الصلبة"></h2>
 </section>
 
 <!-- ================= CONTENT SECTIONS ================= -->
 
 <section id="cours" class="content-section container">
-  <h2 data-fr="Cours" data-en="Course" data-ar="المقرر الدراسي">Cours</h2>
-  <p data-fr="Contenu des cours" data-en="Course content" data-ar="الدروس">Contenu des cours ici.</p>
+  <h2 data-fr="Cours" data-en="Course" data-ar="الدروس">Cours</h2>
 </section>
 
 <section id="cc" class="content-section container">
@@ -229,13 +130,18 @@
 
 <section id="contact" class="content-section container">
   <h2 data-fr="Contact" data-en="Contact" data-ar="اتصل بنا">Contact</h2>
-  <p><strong>Email :</strong>
-    <a href="mailto:taqiyeddine.assas@univ-biskra.dz">taqiyeddine.assas@univ-biskra.dz</a>
+
+  <p>
+    <strong data-fr="Email :" data-en="Email :" data-ar="البريد الإلكتروني :">Email :</strong>
+    <a href="mailto:taqiyeddine.assas@univ-biskra.dz">
+      taqiyeddine.assas@univ-biskra.dz
+    </a>
   </p>
+
   <div class="social-icons">
     <a href="https://www.linkedin.com/in/taqiyeddine-assas-770696378" target="_blank"><i class="fab fa-linkedin"></i></a>
     <a href="https://www.researchgate.net/profile/Taqiyeddine-Assas" target="_blank"><i class="fab fa-researchgate"></i></a>
-    <a href="https://scholar.google.com/scholar?hl=fr&as_sdt=0%2C5&q=assas+taqiyeddine&oq=" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+    <a href="https://scholar.google.com/citations?user=Gk1u97UAAAAJ&hl=fr&oi=ao"target="_blank"><i class="fas fa-graduation-cap"></i></a>
     <a href="https://orcid.org/0009-0001-4288-2908" target="_blank"><i class="fab fa-orcid"></i></a>
     <a href="mailto:taqiyeddine.assas@univ-biskra.dz"><i class="fas fa-envelope"></i></a>
   </div>

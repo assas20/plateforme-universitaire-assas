@@ -642,10 +642,492 @@
   </div>
   <div class="solution">
     <h3>Solutions</h3>
-    <ul>
-      <li><a href="solutions/td2_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td2_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
+    <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Sheet - The Moment of a Force</title>
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']],
+            macros: {
+              vec: ["{\\overrightarrow{#1}}", 1],
+              deriv: ["{\\frac{d#1}{dt}}", 1]
+            }
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css">
+    <style>
+        body {
+            font-family: "Computer Modern Sans", sans-serif;
+            line-height: 1.3;
+            margin: 1em;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        h1, h2, h3, p {
+            margin-top: 0.2em;
+            margin-bottom: 0.2em;
+        }
+        h1 { font-size: 1.8em; text-align: center; border-bottom: 2px solid #003366; margin-bottom: 0.8em; font-family: "Computer Modern Serif", serif;}
+        h2 { font-size: 1.5em; font-family: "Computer Modern Serif", serif;}
+        h3 { font-size: 1.2em; border-bottom: none; color: #0055A4; font-family: "Computer Modern Serif", serif;}
+        mjx-container {
+            font-size: 105% !important;
+            text-align: left !important;
+            margin-top: 0.4em;
+            margin-bottom: 0.4em;
+        }
+        .math-display {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            padding: 0.4em;
+            background-color: #f8f8f8;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        ul, ol { margin-top: 0.3em; margin-bottom: 0.3em; margin-left: 0; padding-left: 1.5em; }
+        li { margin-bottom: 0.2em; }
+        strong { color: #003366; }
+        .question {
+            font-weight: bold;
+            color: #D2691E;
+        }
+        .solution-branch {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid black;
+            margin-left: 10px;
+            padding-bottom: 0.1em;
+        }
+        .solution-branch:not(:last-child) {
+            padding-bottom: 1.2em;
+        }
+        .solution-branch > .question {
+            position: relative;
+            margin-top: 0;
+        }
+        .solution-branch > .question::before {
+            content: "";
+            position: absolute;
+            background-color: black;
+            height: 2px;
+            width: 18px;
+            left: -25px;
+            top: 0.8em;
+        }
+        .figure-placeholder {
+            height: 200px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #888;
+            font-style: italic;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+         
+        /* Embedded exercise figures */
+        .exercise-figure {
+            margin-top: 1em;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+        .exercise-figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: white;
+        }
+        .exercise-figure figcaption {
+            margin-top: 0.4em;
+            color: #666;
+            font-style: italic;
+            font-size: 0.95em;
+        }
+.sub-branch {
+            position: relative;
+            padding-left: 20px;
+            border-left: 1px solid black;
+            margin-left: 5px;
+            padding-top: 0.3em;
+            padding-bottom: 0.1em;
+        }
+        .sub-branch:not(:last-child) {
+            padding-bottom: 0.4em;
+        }
+        .sub-branch > h3 {
+            position: relative;
+            margin-top: 0;
+        }
+        .sub-branch > h3::before {
+            content: "";
+            position: absolute;
+            background-color: black;
+            height: 1px;
+            width: 15px;
+            left: -20px;
+            top: 0.6em;
+        }
+
+        /* Language Toggle Styles */
+        #language-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+            width: 65px;
+            height: 28px;
+            background-color: #e9ecef;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .toggle-button {
+            width: 22px;
+            height: 22px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            transition: left 0.3s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #adb5bd;
+        }
+
+        .toggle-text {
+            font-family: "Arial", sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            color: #495057;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* State for EN (default/not active) */
+        #language-toggle .toggle-button {
+            left: 3px;
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2MDAiIHZpZXdCb3g9IjAgMCA2MCAzMCI+DQo8Y2xpcFBhdGggaWQ9ImEiPg0KPHBhdGggZD0iTTMwLDAgVjE1IEg2MCBWMEEiLz4NCjwvY2xpcFBhdGg+DQo8Y2xpcFBhdGggaWQ9ImIiPg0KPHBhdGggZD0iTTAsMTUgSDMwIFYzMCBIMFYxNU0zMCwwIEg2MCBWMTUgSDMwVjBNMCwwIEgzMCBWMTAgSDBWMCIvPg0KPC9jbGlwUGF0aD4NCjxwYXRoIGQ9Ik0wLDAgVjMwIEg2MCBWMEEiIGZpbGw9IiMwMDI0N0QiLz4NCjxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSI2IiBkPSJNMzAsMCA2MCwxNSAwLDE1IE0zMCwzMCAwLDE1IDYwLDE1Ii8+DQo8cGF0aCBzdHJva2U9IiNDRjE0MkIiIHN0cm9rZS13aWR0aD0iNCIgZD0iTTAgMCA2MCAzME0wIDMwIDYwIDAiLz4NCjxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxMCIgZD0iTTMwLDAgVjMwIi8+DQo8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS13aWR0aD0iMTgiIGQ9Ik0wLDE1IEg2MCIvPg0KPHBhdGggc3Ryb2tlPSIjQ0YxNDJCIiBzdHJva2Utd2lkdGg9IjYiIGQ9Ik0zMCwwIFYzMCIvPg0KPHBhdGggc3Ryb2tlPSIjQ0YxNDJCIiBzdHJva2Utd2lkdGg9IjEwIiBkPSJNLTEsMTUgSDYxIi8+DQo8L3N2Zz4=');
+        }
+        #language-toggle .toggle-text {
+            right: 12px;
+        }
+
+        /* State for FR (active) */
+        #language-toggle.active .toggle-button {
+            left: calc(100% - 22px - 3px);
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDU1QTEiLz48cmVjdCB4PSIxIiB3aWR0aD0iMSIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGIi8+PHJlY3QgeD0iMiIgd2lkdGg9IjEiIGhlaWdodD0iMiIgZmlsbD0iI0VEMjlENSIvPjwvc3ZnPg==');
+        }
+        #language-toggle.active .toggle-text {
+            left: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="language-toggle">
+        <div class="toggle-button"></div>
+        <span class="toggle-text">EN</span>
+    </div>
+
+    <div id="fr-version" lang="fr" style="display:none;">
+        <h1>Mécanique Rationnelle - Fiche de TD n°02</h1>
+        <p style="text-align:center; font-family: 'Computer Modern Serif', serif; color: #555; margin-top:-0.5em; margin-bottom:1.5em;">Le moment d'une force</p>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercice 01</h2>
+            <p>Pour serrer un écrou, on peut considérer que la main exerce une force appliquée au point A, situé à l'extrémité de la clé. L'axe de rotation Δ de l'écrou est horizontal ; la force se situe dans un plan perpendiculaire à l'axe de l'écrou, et sa direction est verticale.</p>
+            <p>Calculer le moment de cette force par rapport à l'axe (O, Δ).</p>
+            <p><strong>Données :</strong> \( (\vec{OA}, \vec{F}) = 50^\circ \); AO = 20 cm; F = 20N.</p>
+            <figure class="exercise-figure">
+                <img src="TD2fig1.jpg" alt="Figure de l'exercice 01">
+                <figcaption>Figure 1 — Exercice 01</figcaption>
+            </figure>
+            <div class="sub-branch">
+                <h3>Solution</h3>
+                <p>Le moment d'une force \( \vec{F} \) par rapport à un axe \( \Delta \) passant par O est défini par le produit vectoriel \( \vec{M}_{O} = \vec{r} \times \vec{F} \), où \( \vec{r} \) est le vecteur position du point d'application de la force. Son module est donné par :</p>
+                <div class="math-display">\[ M = ||\vec{r}|| \cdot ||\vec{F}|| \cdot \sin(\theta) \]</div>
+                <p>Où \( \theta \) est l'angle entre le vecteur position \( \vec{OA} \) et le vecteur force \( \vec{F} \). On doit d'abord convertir la distance AO en mètres : \( AO = 20 \, \text{cm} = 0.2 \, \text{m} \).</p>
+                <p>Application numérique :</p>
+                <div class="math-display">\[ M = (0.2 \, \text{m}) \cdot (20 \, \text{N}) \cdot \sin(50^\circ) \]</div>
+                <div class="math-display">\[ M = 4 \cdot \sin(50^\circ) \approx 4 \cdot 0.766 \]</div>
+                <div class="math-display">\[ M \approx 3.064 \, \text{N} \cdot \text{m} \]</div>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercice 02</h2>
+            <p>Une tige de poids négligeable est fixée dans un mur au point A. Elle supporte en un point B une charge de poids 2500 N.</p>
+            <p>Calculer le moment de cette charge par rapport à l'axe horizontal passant par l'encastrement A.</p>
+            <p><strong>Données :</strong> AB = 1.5 m, \( \alpha = 55^\circ \).</p>
+            <figure class="exercise-figure">
+                <img src="TD2fig2.jpg" alt="Figure de l'exercice 02">
+                <figcaption>Figure 2 — Exercice 02</figcaption>
+            </figure>
+            <div class="sub-branch">
+                <h3>Solution</h3>
+                <p>Le moment de la charge (poids P) par rapport à l'axe en A est le produit du module de la force par la distance perpendiculaire de l'axe à la ligne d'action de la force. Cette distance est appelée le bras de levier, noté d.</p>
+                <div class="math-display">\[ M_A = P \cdot d \]</div>
+                <p>D'après la géométrie de la figure, le poids P est une force verticale. Le bras de levier \(d\) est donc la distance horizontale entre le point de pivot A et le point d'application de la force B. Cet-te distance est la projection horizontale de la tige AB.</p>
+                <p>L'angle \( \alpha \) est donné entre la tige et le mur vertical. Le bras de levier \(d\) peut être calculé comme suit :</p>
+                <div class="math-display">\[ d = AB \cdot \sin(\alpha) \]</div>
+                <p>En remplaçant les valeurs :</p>
+                <div class="math-display">\[ d = 1.5 \, \text{m} \cdot \sin(55^\circ) \approx 1.5 \cdot 0.819 \approx 1.2287 \, \text{m} \]</div>
+                <p>Maintenant, on calcule le moment :</p>
+                <div class="math-display">\[ M_A = 2500 \, \text{N} \cdot 1.2287 \, \text{m} \approx 3071.75 \, \text{N} \cdot \text{m} \]</div>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercice 03</h2>
+            <p>Le système représenté sur la figure est constitué de :</p>
+            <ul>
+                <li><strong>AB</strong>: une tige homogène de masse M et de longueur L, pivotant autour d'un axe fixe situé au point A.</li>
+                <li><strong>R</strong>: un ressort hélicoïdal horizontal de raideur k, attaché au point B.</li>
+            </ul>
+            <p>À l'équilibre, la tige forme un angle \( \alpha \) avec la verticale.</p>
+            <ol>
+                <li>Dessiner le diagramme de corps libre de la tige à l'équilibre, en montrant toutes les forces qui agissent sur elle.</li>
+                <li>
+                    <p style="margin-bottom: 0.1em;">a. Écrire l'expression du moment produit par chaque force par rapport à l'axe passant par le point A.</p>
+                    <p style="margin-top: 0.1em;">b. Énoncer la condition d'équilibre de rotation de la tige.</p>
+                </li>
+                <li>
+                    <p>Dériver l'expression de l'allongement du ressort 'a' en fonction de m, k, \( \alpha \) et L, puis effectuer le calcul numérique.</p>
+                    <p><strong>Données :</strong> k = 100 N \(\cdot\) m\(^{-1}\); M = 500 g; \( \alpha = 45^\circ \).</p>
+                </li>
+                <li>Déterminer les caractéristiques (module, direction et ligne d'action) de la force de réaction exercée par le pivot au point A.</li>
+            </ol>
+            <figure class="exercise-figure">
+                <img src="TD2fig3.jpg" alt="Figure de l'exercice 03">
+                <figcaption>Figure 3 — Exercice 03</figcaption>
+            </figure>
+            <div class="sub-branch">
+                <h3>Solution</h3>
+                <h3>1. Diagramme de corps libre</h3>
+                <p>Les forces agissant sur la tige AB sont :</p>
+                <ul>
+                    <li>Le <strong>poids</strong> \( \vec{P} \) de la tige, appliqué en son centre de masse G (à L/2 de A), dirigé verticalement vers le bas. \( P = M \cdot g \).</li>
+                    <li>La <strong>force du ressort</strong> \( \vec{T} \), appliquée en B, dirigée horizontalement vers la gauche. \( T = k \cdot a \), où 'a' est l'allongement.</li>
+                    <li>La <strong>force de réaction</strong> du pivot \( \vec{R} \) en A, qui a une composante horizontale \( R_x \) et une composante verticale \( R_y \).</li>
+                </ul>
+                <h3>2a. Expression des moments par rapport à A</h3>
+                <p>On choisit le sens horaire comme positif (+).</p>
+                <ul>
+                    <li>Le moment de la réaction \( \vec{R} \) est nul car elle s'applique au point de pivot A : \( M_A(\vec{R}) = 0 \).</li>
+                    <li>Le poids \( \vec{P} \) crée un moment horaire (positif). Son bras de levier est la distance horizontale de A à la ligne d'action de P, soit \( d_P = (L/2) \sin(\alpha) \).</li>
+                        <div class="math-display">\[ M_A(\vec{P}) = P \cdot d_P = Mg \frac{L}{2} \sin(\alpha) \]</div>
+                    <li>La force du ressort \( \vec{T} \) crée un moment anti-horaire (négatif). Son bras de levier est la distance verticale de A à la ligne d'action de T, soit \( d_T = L \cos(\alpha) \).</li>
+                        <div class="math-display">\[ M_A(\vec{T}) = -T \cdot d_T = -(k \cdot a) L \cos(\alpha) \]</div>
+                </ul>
+                <h3>2b. Condition d'équilibre de rotation</h3>
+                <p>Pour que la tige soit en équilibre de rotation, la somme des moments par rapport à n'importe quel point doit être nulle.</p>
+                <div class="math-display">\[ \sum M_A = M_A(\vec{R}) + M_A(\vec{P}) + M_A(\vec{T}) = 0 \]</div>
+                <div class="math-display">\[ Mg \frac{L}{2} \sin(\alpha) - (k \cdot a) L \cos(\alpha) = 0 \]</div>
+
+                <h3>3. Expression et calcul de l'allongement 'a'</h3>
+                <p>On résout l'équation d'équilibre pour 'a' :</p>
+                <div class="math-display">\[ Mg \frac{L}{2} \sin(\alpha) = k \cdot a \cdot L \cos(\alpha) \]</div>
+                <div class="math-display">\[ a = \frac{MgL \sin(\alpha)}{2kL \cos(\alpha)} = \frac{Mg}{2k} \tan(\alpha) \]</div>
+                <p><strong>Calcul numérique :</strong> On convertit la masse en kg : \( M = 500 \, \text{g} = 0.5 \, \text{kg} \). On utilise \( g \approx 9.8 \, \text{m/s}^2 \).</p>
+                <div class="math-display">\[ a = \frac{0.5 \cdot 9.8}{2 \cdot 100} \tan(45^\circ) = \frac{4.9}{200} \cdot 1 = 0.0245 \, \text{m} \]</div>
+                <p>L'allongement est de 2.45 cm.</p>
+
+                <h3>4. Caractéristiques de la force de réaction \( \vec{R} \)</h3>
+                <p>On utilise la condition d'équilibre de translation : la somme des forces doit être nulle \( \sum \vec{F} = 0 \).</p>
+                <p><strong>Composantes en x :</strong></p>
+                <div class="math-display">\[ \sum F_x = R_x - T = 0 \implies R_x = T = k \cdot a \]</div>
+                <div class="math-display">\[ R_x = 100 \cdot 0.0245 = 2.45 \, \text{N} \]</div>
+                <p><strong>Composantes en y :</strong></p>
+                <div class="math-display">\[ \sum F_y = R_y - P = 0 \implies R_y = P = M \cdot g \]</div>
+                <div class="math-display">\[ R_y = 0.5 \cdot 9.8 = 4.9 \, \text{N} \]</div>
+                <p><strong>Module de la force de réaction :</strong></p>
+                <div class="math-display">\[ R = \sqrt{R_x^2 + R_y^2} = \sqrt{(2.45)^2 + (4.9)^2} = \sqrt{6.0025 + 24.01} \approx 5.48 \, \text{N} \]</div>
+                <p><strong>Direction de la force de réaction :</strong> L'angle \( \theta \) que \( \vec{R} \) forme avec l'horizontale.</p>
+                <div class="math-display">\[ \tan(\theta) = \frac{R_y}{R_x} = \frac{4.9}{2.45} = 2 \implies \theta = \arctan(2) \approx 63.4^\circ \]</div>
+                <p><strong>Ligne d'action :</strong> La force de réaction s'applique au point A.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="en-version" lang="en">
+        <h1>Rational Mechanics - Tutorial Sheet n°02</h1>
+        <p style="text-align:center; font-family: 'Computer Modern Serif', serif; color: #555; margin-top:-0.5em; margin-bottom:1.5em;">The moment of a force</p>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercise 01</h2>
+            <p>To tighten a nut, we can consider that the hand exerts a force applied at point A, located at the end of the wrench. The axis of rotation Δ of the nut is horizontal; the force lies in a plane perpendicular to the nut's axis, and its direction is vertical.</p>
+            <p>Calculate the moment of this force with respect to the axis (O, Δ).</p>
+            <p><strong>Given:</strong> \( (\vec{OA}, \vec{F}) = 50^\circ \); AO = 20 cm; F = 20N.</p>
+            <figure class="exercise-figure">
+                <img src="TD2fig1.jpg" alt="Figure for Exercise 01">
+                <figcaption>Figure 1 — Exercise 01</figcaption>
+            </figure>
+            <div class="sub-branch">
+                <h3>Solution</h3>
+                <p>The moment of a force \( \vec{F} \) about an axis \( \Delta \) through O is defined by the cross product \( \vec{M}_{O} = \vec{r} \times \vec{F} \), where \( \vec{r} \) is the position vector of the point of application. Its magnitude is given by:</p>
+                <div class="math-display">\[ M = ||\vec{r}|| \cdot ||\vec{F}|| \cdot \sin(\theta) \]</div>
+                <p>Where \( \theta \) is the angle between the position vector \( \vec{OA} \) and the force vector \( \vec{F} \). We must first convert the distance AO to meters: \( AO = 20 \, \text{cm} = 0.2 \, \text{m} \).</p>
+                <p>Applying the numerical values:</p>
+                <div class="math-display">\[ M = (0.2 \, \text{m}) \cdot (20 \, \text{N}) \cdot \sin(50^\circ) \]</div>
+                <div class="math-display">\[ M = 4 \cdot \sin(50^\circ) \approx 4 \cdot 0.766 \]</div>
+                <div class="math-display">\[ M \approx 3.064 \, \text{N} \cdot \text{m} \]</div>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercise 02</h2>
+            <p>A rod of negligible weight is fixed into a wall at point A. It supports at point B a load of weight 2500 N.</p>
+            <p>Calculate the moment of this load about the horizontal axis passing through the built-in end A.</p>
+            <p><strong>Given:</strong> AB = 1.5 m, \( \alpha = 55^\circ \).</p>
+            <figure class="exercise-figure">
+                <img src="TD2fig2.jpg" alt="Figure for Exercise 02">
+                <figcaption>Figure 2 — Exercise 02</figcaption>
+            </figure>
+             <div class="sub-branch">
+                <h3>Solution</h3>
+                <p>The moment of the load (weight P) about the axis at A is the product of the force's magnitude and the perpendicular distance from the axis to the force's line of action. This distance is called the lever arm, denoted d.</p>
+                <div class="math-display">\[ M_A = P \cdot d \]</div>
+                <p>From the geometry of the figure, the weight P is a vertical force. The lever arm \(d\) is therefore the horizontal distance from the pivot point A to the point of force application B. This is the horizontal projection of the rod AB.</p>
+                <p>The angle \( \alpha \) is given between the rod and the vertical wall. The lever arm \(d\) can be calculated as:</p>
+                <div class="math-display">\[ d = AB \cdot \sin(\alpha) \]</div>
+                <p>Substituting the values:</p>
+                <div class="math-display">\[ d = 1.5 \, \text{m} \cdot \sin(55^\circ) \approx 1.5 \cdot 0.819 \approx 1.2287 \, \text{m} \]</div>
+                <p>Now, we calculate the moment:</p>
+                <div class="math-display">\[ M_A = 2500 \, \text{N} \cdot 1.2287 \, \text{m} \approx 3071.75 \, \text{N} \cdot \text{m} \]</div>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercise 03</h2>
+            <p>The system shown in the figure consists of:</p>
+            <ul>
+                <li><strong>AB</strong>: a homogeneous rod of mass M and length L, pivoting about a fixed axis located at point A.</li>
+                <li><strong>R</strong>: a horizontal helical spring of stiffness k, attached at point B.</li>
+            </ul>
+            <p>At equilibrium, the rod forms an angle \( \alpha \) with the vertical.</p>
+            <ol>
+                <li>Draw the free-body diagram of the rod at equilibrium, showing all forces acting on it.</li>
+                <li>
+                    <p style="margin-bottom: 0.1em;">a. Write the expression of the moment produced by each force with respect to the axis through point A.</p>
+                    <p style="margin-top: 0.1em;">b. State the condition of rotational equilibrium of the rod.</p>
+                </li>
+                <li>
+                    <p>Derive the expression of the spring extension 'a' as a function of m, k, \( \alpha \), and L, then perform the numerical calculation.</p>
+                    <p><strong>Given:</strong> k = 100 N \(\cdot\) m\(^{-1}\); M = 500 g; \( \alpha = 45^\circ \).</p>
+                </li>
+                <li>Determine the characteristics (magnitude, direction and line of action) of the reaction force exerted by the pivot at point A.</li>
+            </ol>
+            <figure class="exercise-figure">
+                <img src="TD2fig3.jpg" alt="Figure for Exercise 03">
+                <figcaption>Figure 3 — Exercise 03</figcaption>
+            </figure>
+            <div class="sub-branch">
+                <h3>Solution</h3>
+                <h3>1. Free-body diagram</h3>
+                <p>The forces acting on the rod AB are:</p>
+                <ul>
+                    <li>The <strong>weight</strong> \( \vec{P} \) of the rod, applied at its center of mass G (at L/2 from A), acting vertically downwards. \( P = M \cdot g \).</li>
+                    <li>The <strong>spring force</strong> \( \vec{T} \), applied at B, acting horizontally to the left. \( T = k \cdot a \), where 'a' is the extension.</li>
+                    <li>The <strong>reaction force</strong> from the pivot \( \vec{R} \) at A, which has a horizontal component \( R_x \) and a vertical component \( R_y \).</li>
+                </ul>
+                <h3>2a. Expression of moments about A</h3>
+                <p>We take the clockwise direction as positive (+).</p>
+                <ul>
+                    <li>The moment of the reaction force \( \vec{R} \) is zero because it acts at the pivot point A: \( M_A(\vec{R}) = 0 \).</li>
+                    <li>The weight \( \vec{P} \) creates a clockwise (positive) moment. Its lever arm is the horizontal distance from A to the line of action of P, which is \( d_P = (L/2) \sin(\alpha) \).</li>
+                        <div class="math-display">\[ M_A(\vec{P}) = P \cdot d_P = Mg \frac{L}{2} \sin(\alpha) \]</div>
+                    <li>The spring force \( \vec{T} \) creates a counter-clockwise (negative) moment. Its lever arm is the vertical distance from A to the line of action of T, which is \( d_T = L \cos(\alpha) \).</li>
+                        <div class="math-display">\[ M_A(\vec{T}) = -T \cdot d_T = -(k \cdot a) L \cos(\alpha) \]</div>
+                </ul>
+                <h3>2b. Condition of rotational equilibrium</h3>
+                <p>For the rod to be in rotational equilibrium, the sum of the moments about any point must be zero.</p>
+                <div class="math-display">\[ \sum M_A = M_A(\vec{R}) + M_A(\vec{P}) + M_A(\vec{T}) = 0 \]</div>
+                <div class="math-display">\[ Mg \frac{L}{2} \sin(\alpha) - (k \cdot a) L \cos(\alpha) = 0 \]</div>
+
+                <h3>3. Expression and calculation of extension 'a'</h3>
+                <p>We solve the equilibrium equation for 'a':</p>
+                <div class="math-display">\[ Mg \frac{L}{2} \sin(\alpha) = k \cdot a \cdot L \cos(\alpha) \]</div>
+                <div class="math-display">\[ a = \frac{MgL \sin(\alpha)}{2kL \cos(\alpha)} = \frac{Mg}{2k} \tan(\alpha) \]</div>
+                <p><strong>Numerical calculation:</strong> We convert the mass to kg: \( M = 500 \, \text{g} = 0.5 \, \text{kg} \). We use \( g \approx 9.8 \, \text{m/s}^2 \).</p>
+                <div class="math-display">\[ a = \frac{0.5 \cdot 9.8}{2 \cdot 100} \tan(45^\circ) = \frac{4.9}{200} \cdot 1 = 0.0245 \, \text{m} \]</div>
+                <p>The extension is 2.45 cm.</p>
+
+                <h3>4. Characteristics of the reaction force \( \vec{R} \)</h3>
+                <p>We use the condition for translational equilibrium: the sum of forces must be zero \( \sum \vec{F} = 0 \).</p>
+                <p><strong>x-components:</strong></p>
+                <div class="math-display">\[ \sum F_x = R_x - T = 0 \implies R_x = T = k \cdot a \]</div>
+                <div class="math-display">\[ R_x = 100 \cdot 0.0245 = 2.45 \, \text{N} \]</div>
+                <p><strong>y-components:</strong></p>
+                <div class="math-display">\[ \sum F_y = R_y - P = 0 \implies R_y = P = M \cdot g \]</div>
+                <div class="math-display">\[ R_y = 0.5 \cdot 9.8 = 4.9 \, \text{N} \]</div>
+                <p><strong>Magnitude of the reaction force:</strong></p>
+                <div class="math-display">\[ R = \sqrt{R_x^2 + R_y^2} = \sqrt{(2.45)^2 + (4.9)^2} = \sqrt{6.0025 + 24.01} \approx 5.48 \, \text{N} \]</div>
+                <p><strong>Direction of the reaction force:</strong> The angle \( \theta \) that \( \vec{R} \) makes with the horizontal.</p>
+                <div class="math-display">\[ \tan(\theta) = \frac{R_y}{R_x} = \frac{4.9}{2.45} = 2 \implies \theta = \arctan(2) \approx 63.4^\circ \]</div>
+                <p><strong>Line of action:</strong> The reaction force is exerted at point A.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const toggle = document.getElementById('language-toggle');
+            const toggleText = toggle.querySelector('.toggle-text');
+            const frVersion = document.getElementById('fr-version');
+            const enVersion = document.getElementById('en-version');
+
+            // Function to set the page state based on language
+            function setLanguage(lang) {
+                if (lang === 'fr') {
+                    frVersion.style.display = 'block';
+                    enVersion.style.display = 'none';
+                    toggle.classList.add('active');
+                    toggleText.textContent = 'FR';
+                } else { // 'en'
+                    frVersion.style.display = 'none';
+                    enVersion.style.display = 'block';
+                    toggle.classList.remove('active');
+                    toggleText.textContent = 'EN';
+                }
+            }
+            
+            // Event listener for the toggle click
+            toggle.addEventListener('click', () => {
+                // Check current state by looking at the class
+                const isFrench = toggle.classList.contains('active');
+                if (isFrench) {
+                    setLanguage('en');
+                } else {
+                    setLanguage('fr');
+                }
+            });
+
+            // Set initial state to English on page load
+            setLanguage('en'); 
+        });
+    </script>
   </div>
 </section>
 

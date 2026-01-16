@@ -161,6 +161,22 @@ a:hover {
   text-decoration: underline;
 }
 
+/* -------------------- Videos YouTube -------------------- */
+.videos-list a {
+  display: inline-flex;
+  align-items: center;
+  margin: 5px 0;
+  text-decoration: none;
+  color: #c4302b; /* لون شعار YouTube */
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.videos-list a i {
+  margin-right: 8px;
+  font-size: 1.5em;
+}
+
 /* -------------------- Contact -------------------- */
 .social-icons {
   margin-top: 15px;
@@ -175,6 +191,33 @@ a:hover {
 
 .social-icons a:hover {
   color: #c0392b;
+}
+
+/* -------------------- Attendance Table -------------------- */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.attendance-table th,
+.attendance-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.attendance-table th {
+  background-color: #2980b9;
+  color: white;
+}
+
+.attendance-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.attendance-table select {
+  padding: 3px;
 }
 
 /* -------------------- Footer -------------------- */

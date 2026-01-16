@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TD Mécanique Rationnelle - MR assas taqiyeddine </title>
+<title>TD Mécanique Rationnelle - Multilingue</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -19,20 +19,10 @@
 
 <section class="intro">
   <div class="container">
-    <h2 data-fr="TD Mécanique Rationnelle"
-        data-en="Rational Mechanics TD"
-        data-ar="الأعمال الموجهة في ميكانيك الأجسام الصلبة">
-      TD Mécanique Rationnelle
-    </h2>
+    <h2 data-fr="TD Mécanique Rationnelle" data-en="Rational Mechanics TD" data-ar="الأعمال الموجهة في ميكانيك الأجسام الصلبة">TD Mécanique Rationnelle</h2>
     <p>
-      <span data-fr="Chargé  TD"
-            data-en="TD Instructor"
-            data-ar="أستاذ الأعمال الموجهة"></span>
-      <strong> Mr Assas-Taqiyeddine </strong> |
-      <span data-fr="Chargé de cours"
-            data-en="Course Instructor"
-            data-ar="أستاذة الدرس"></span>
-      <strong> Mme Zouadi-Nabila </strong>
+      <strong data-fr="Chargé d'enseignement TD" data-en="TD Instructor" data-ar="أستاذ الأعمال الموجهة">Mr Assas Taqiyeddine</strong> |
+      <strong data-fr="Chargé de cours" data-en="Course Instructor" data-ar="أستاذة الدرس">Mme Zouadi Nabila</strong>
     </p>
   </div>
 </section>
@@ -48,228 +38,138 @@
   </div>
 </nav>
 
-<!-- ================= SEMESTRES ================= -->
-
+<!-- TD Semestres -->
 <section class="td-menu container">
-  <button class="sem-btn" onclick="toggleSemestre('s3')"
-    data-fr="Semestre 03" data-en="Semester 03" data-ar="الفصل الدراسي 03">
-    Semestre 03
-  </button>
-  <div id="s3" class="semestre-content">
-    <button onclick="showTD('td1')">TD N°01</button>
-    <button onclick="showTD('td2')">TD N°02</button>
-    <button onclick="showTD('td3')">TD N°03</button>
-    <button onclick="showTD('td4')">TD N°04</button>
+  <button class="sem-btn" onclick="toggleSemestre('s3')" data-fr="Semestre 03" data-en="Semester 03" data-ar="الفصل الدراسي 03">Semestre 03</button>
+  <div id="s3" class="semestre-content" style="display:none;">
+    <button onclick="showSection('td1')" data-fr="TD N°01" data-en="TD No.01" data-ar="السلسلة 01">TD N°01</button>
+    <button onclick="showSection('td2')" data-fr="TD N°02" data-en="TD No.02" data-ar="السلسلة 02">TD N°02</button>
+    <button onclick="showSection('td3')" data-fr="TD N°03" data-en="TD No.03" data-ar="السلسلة 03">TD N°03</button>
+    <button onclick="showSection('td4')" data-fr="TD N°04" data-en="TD No.04" data-ar="السلسلة 04">TD N°04</button>
   </div>
 </section>
 
 <section class="td-menu container">
-  <button class="sem-btn" onclick="toggleSemestre('s4')"
-    data-fr="Semestre 04" data-en="Semester 04" data-ar="الفصل الدراسي 04">
-    Semestre 04
-  </button>
-  <div id="s4" class="semestre-content">
-    <button onclick="showTD('td5')">TD N°05</button>
-    <button onclick="showTD('td6')">TD N°06</button>
-    <button onclick="showTD('td7')">TD N°07</button>
-    <button onclick="showTD('td8')">TD N°08</button>
+  <button class="sem-btn" onclick="toggleSemestre('s4')" data-fr="Semestre 04" data-en="Semester 04" data-ar="الفصل الدراسي 04">Semestre 04</button>
+  <div id="s4" class="semestre-content" style="display:none;">
+    <button onclick="showSection('td5')" data-fr="TD N°05" data-en="TD No.05" data-ar="السلسلة 05">TD N°05</button>
+    <button onclick="showSection('td6')" data-fr="TD N°06" data-en="TD No.06" data-ar="السلسلة 06">TD N°06</button>
+    <button onclick="showSection('td7')" data-fr="TD N°07" data-en="TD No.07" data-ar="السلسلة 07">TD N°07</button>
+    <button onclick="showSection('td8')" data-fr="TD N°08" data-en="TD No.08" data-ar="السلسلة 08">TD N°08</button>
   </div>
 </section>
 
-<!-- ================= CONTENT MENU ================= -->
-
+<!-- Content Menu -->
 <section class="content-menu container">
-  <button onclick="showContent('cours')" data-fr="Cours" data-en="Course" data-ar="الدروس">Cours</button>
-  <button onclick="showContent('cc')" data-fr="Contrôle Continu" data-en="Continuous Assessment" data-ar="المراقبة المستمرة">Contrôle Continu</button>
-  <button onclick="showContent('examens')" data-fr="Examens" data-en="Exams" data-ar="الامتحانات">Examens</button>
-  <button onclick="showContent('contact')" data-fr="Contact" data-en="Contact" data-ar="اتصل بنا">Contact</button>
+  <button onclick="showSection('cours')" data-fr="Cours" data-en="Course" data-ar="الدروس">Cours</button>
+  <button onclick="showSection('evaluations')" data-fr="Contrôle & Examens" data-en="Assessment & Exams" data-ar="المراقبة & الامتحانات">Contrôle & Examens</button>
+  <button onclick="showSection('videos')">Vidéos 📹 YouTube</button>
+  <button onclick="showSection('attendance')">قايمة الحضور</button>
+  <button onclick="showSection('contact')">Contact</button>
 </section>
 
-<!-- ================= TD SECTIONS ================= -->
-
-<!-- ================= TD 01 ================= -->
-<section id="td1" class="td-section container">
+<!-- TD Sections -->
+<section id="td1" class="td-section container" style="display:none;">
   <h2 data-fr="TD N°01 : Les outils mathématiques (Opérations sur les vecteurs)"
       data-en="TD No.01: Mathematical tools (Vector operations)"
-      data-ar="السلسلة 01 : أدوات رياضية (عمليات على الأشعة)">
-    TD N°01
-  </h2>
+      data-ar="السلسلة 01 : أدوات رياضية (عمليات على الأشعة)">TD N°01</h2>
   <div class="exercise">
     <h3>Exercices</h3>
-    <p><a href="exercices/td1_exercices.pdf" target="_blank">Ouvrir le PDF TD 01</a></p>
-  </div>
-  <div class="pdf-viewer" style="margin-top: 20px;">
-    <iframe src="exercices/td1_exercices.pdf" width="100%" height="600px"></iframe>
-  </div>
-  <div class="solution">
-    <h3>Solutions</h3>
-    <ul>
-      <li><a href="solutions/td1_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td1_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
+    <p><a href="https://assas20.github.io/plateforme-universitaire-assas/exercices/td1_exercices.pdf" target="_blank">Ouvrir le PDF TD 01</a></p>
   </div>
 </section>
 
-<!-- ================= TD 02 ================= -->
-<section id="td2" class="td-section container">
+<section id="td2" class="td-section container" style="display:none;">
   <h2 data-fr="TD N°02 : Moments des forces"
       data-en="TD No.02: Moments of forces"
-      data-ar="السلسلة 02 : عزم القوى">
-    TD N°02
-  </h2>
+      data-ar="السلسلة 02 : عزم القوى">TD N°02</h2>
   <div class="exercise">
     <h3>Exercices</h3>
-    <p><a href="exercices/td2_exercices.pdf" target="_blank">Ouvrir le PDF TD 02</a></p>
-  </div>
-  <div class="pdf-viewer" style="margin-top: 20px;">
-    <iframe src="exercices/td2_exercices.pdf" width="100%" height="600px"></iframe>
-  </div>
-  <div class="solution">
-    <h3>Solutions</h3>
-    <ul>
-      <li><a href="solutions/td2_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td2_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
+    <p><a href="https://assas20.github.io/plateforme-universitaire-assas/exercices/td2_exercices.pdf" target="_blank">Ouvrir le PDF TD 02</a></p>
   </div>
 </section>
 
-<!-- ================= TD 03 ================= -->
-<section id="td3" class="td-section container">
-  <h2 data-fr="TD N°03 : Les Torseurs"
-      data-en="TD No.03: Torques"
-      data-ar="السلسلة 03 : المخططات العزمية">
-    TD N°03
-  </h2>
+<!-- كرر نفس النمط TD3 - TD8 -->
+<section id="td3" class="td-section container" style="display:none;">
+  <h2 data-fr="TD N°03 : Les Torseurs" data-en="TD No.03: Torques" data-ar="السلسلة 03 : المخططات العزمية">TD N°03</h2>
   <div class="exercise">
     <h3>Exercices</h3>
-    <p><a href="exercices/td3_exercices.pdf" target="_blank">Ouvrir le PDF TD 03</a></p>
-  </div>
-  <div class="pdf-viewer" style="margin-top: 20px;">
-    <iframe src="exercices/td3_exercices.pdf" width="100%" height="600px"></iframe>
-  </div>
-  <div class="solution">
-    <h3>Solutions</h3>
-    <ul>
-      <li><a href="solutions/td3_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td3_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
+    <p><a href="https://assas20.github.io/plateforme-universitaire-assas/exercices/td3_exercices.pdf" target="_blank">Ouvrir le PDF TD 03</a></p>
   </div>
 </section>
 
-<!-- ================= TD 04 ================= -->
-<section id="td4" class="td-section container">
-  <h2 data-fr="TD N°04 : Statique des solides"
-      data-en="TD No.04: Solid statics"
-      data-ar="السلسلة 04 : سكون الأجسام الصلبة">
-    TD N°04
-  </h2>
+<section id="td4" class="td-section container" style="display:none;">
+  <h2 data-fr="TD N°04 : Statique des solides" data-en="TD No.04: Solid statics" data-ar="السلسلة 04 : سكون الأجسام الصلبة">TD N°04</h2>
   <div class="exercise">
     <h3>Exercices</h3>
-    <p><a href="exercices/td4_exercices.pdf" target="_blank">Ouvrir le PDF TD 04</a></p>
-  </div>
-  <div class="pdf-viewer" style="margin-top: 20px;">
-    <iframe src="exercices/td4_exercices.pdf" width="100%" height="600px"></iframe>
-  </div>
-  <div class="solution">
-    <h3>Solutions</h3>
-    <ul>
-      <li><a href="solutions/td4_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td4_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
+    <p><a href="https://assas20.github.io/plateforme-universitaire-assas/exercices/td4_exercices.pdf" target="_blank">Ouvrir le PDF TD 04</a></p>
   </div>
 </section>
 
-<!-- ================= TD 05 ================= -->
-<section id="td5" class="td-section container">
+<section id="td5" class="td-section container" style="display:none;">
   <h2>TD N°05</h2>
   <div class="exercise">
     <h3>Exercices</h3>
-    <p><a href="exercices/td5_exercices.pdf" target="_blank">Ouvrir le PDF TD 05</a></p>
-  </div>
-  <div class="pdf-viewer" style="margin-top: 20px;">
-    <iframe src="exercices/td5_exercices.pdf" width="100%" height="600px"></iframe>
-  </div>
-  <div class="solution">
-    <h3>Solutions</h3>
-    <ul>
-      <li><a href="solutions/td5_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td5_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
+    <p><a href="#">Ouvrir le PDF TD 05</a></p>
   </div>
 </section>
 
-<!-- ================= TD 06 ================= -->
-<section id="td6" class="td-section container">
+<section id="td6" class="td-section container" style="display:none;">
   <h2>TD N°06</h2>
   <div class="exercise">
     <h3>Exercices</h3>
-    <p><a href="exercices/td6_exercices.pdf" target="_blank">Ouvrir le PDF TD 06</a></p>
-  </div>
-  <div class="pdf-viewer" style="margin-top: 20px;">
-    <iframe src="exercices/td6_exercices.pdf" width="100%" height="600px"></iframe>
-  </div>
-  <div class="solution">
-    <h3>Solutions</h3>
-    <ul>
-      <li><a href="solutions/td6_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td6_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
+    <p><a href="#">Ouvrir le PDF TD 06</a></p>
   </div>
 </section>
 
-<!-- ================= TD 07 ================= -->
-<section id="td7" class="td-section container">
+<section id="td7" class="td-section container" style="display:none;">
   <h2>TD N°07</h2>
   <div class="exercise">
     <h3>Exercices</h3>
-    <p><a href="exercices/td7_exercices.pdf" target="_blank">Ouvrir le PDF TD 07</a></p>
-  </div>
-  <div class="pdf-viewer" style="margin-top: 20px;">
-    <iframe src="exercices/td7_exercices.pdf" width="100%" height="600px"></iframe>
-  </div>
-  <div class="solution">
-    <h3>Solutions</h3>
-    <ul>
-      <li><a href="solutions/td7_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td7_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
+    <p><a href="#">Ouvrir le PDF TD 07</a></p>
   </div>
 </section>
 
-<!-- ================= TD 08 ================= -->
-<section id="td8" class="td-section container">
+<section id="td8" class="td-section container" style="display:none;">
   <h2>TD N°08</h2>
   <div class="exercise">
     <h3>Exercices</h3>
-    <p><a href="exercices/td8_exercices.pdf" target="_blank">Ouvrir le PDF TD 08</a></p>
-  </div>
-  <div class="pdf-viewer" style="margin-top: 20px;">
-    <iframe src="exercices/td8_exercices.pdf" width="100%" height="600px"></iframe>
-  </div>
-  <div class="solution">
-    <h3>Solutions</h3>
-    <ul>
-      <li><a href="solutions/td8_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td8_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
+    <p><a href="#">Ouvrir le PDF TD 08</a></p>
   </div>
 </section>
 
-<!-- ================= CONTENT SECTIONS ================= -->
+<!-- Videos Section -->
+<section id="videos" class="content-section container" style="display:none;"></section>
 
-<section id="cours" class="content-section container">
+<!-- Attendance Section -->
+<section id="attendance" class="content-section container" style="display:none;">
+  <h2>قايمة الحضور</h2>
+  <div>
+    <button onclick="toggleGroup('group-g07')">G07</button>
+    <button onclick="toggleGroup('group-g08')">G08</button>
+  </div>
+  <div id="group-g07" class="group-section" style="display:none;">
+    <h3>G07 - اختار التاريخ</h3>
+    <div id="dates-g07"></div>
+    <div id="g07-students"></div>
+  </div>
+  <div id="group-g08" class="group-section" style="display:none;">
+    <h3>G08 - اختار التاريخ</h3>
+    <div id="dates-g08"></div>
+    <div id="g08-students"></div>
+  </div>
+</section>
+
+<!-- Other Sections -->
+<section id="cours" class="content-section container" style="display:none;">
   <h2>Cours</h2>
 </section>
 
-<section id="cc" class="content-section container">
-  <h2>Contrôle Continu</h2>
+<section id="evaluations" class="content-section container" style="display:none;">
+  <h2>Contrôle & Examens</h2>
 </section>
 
-<section id="examens" class="content-section container">
-  <h2>Examens</h2>
-</section>
-
-<section id="contact" class="content-section container">
+<section id="contact" class="content-section container" style="display:none;">
   <h2>Contact</h2>
   <p><strong>Email :</strong> <a href="mailto:taqiyeddine.assas@univ-biskra.dz">taqiyeddine.assas@univ-biskra.dz</a></p>
   <div class="social-icons">

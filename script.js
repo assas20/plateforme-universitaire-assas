@@ -29,3 +29,16 @@ function changeLanguage(lang) {
 
 // افتراضي: إظهار TD1 عند التحميل
 showTD('td1');
+function toggleSolutionTD1() {
+  const box = document.getElementById("solution-td1");
+  const btn = event.target;
+
+  if (box.style.display === "none") {
+    box.style.display = "block";
+    btn.textContent = "❌ Masquer la solution détaillée";
+    box.scrollIntoView({ behavior: "smooth" });
+  } else {
+    box.style.display = "none";
+    btn.textContent = "📘 Afficher la solution détaillée";
+  }
+}

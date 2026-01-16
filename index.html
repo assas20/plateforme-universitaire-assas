@@ -102,12 +102,23 @@
     <iframe src="exercices/td1_exercices.pdf" width="100%" height="600px"></iframe>
   </div>
   <div class="solution">
-    <h3>Solutions</h3>
-    <ul>
-      <li><a href="solutions/td1_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td1_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
+  <h3>Solutions</h3>
+
+  <!-- Bouton -->
+  <button class="solution-btn" onclick="toggleSolutionTD1()">
+    📘 Afficher la solution détaillée
+  </button>
+
+  <!-- Conteneur caché -->
+  <div id="solution-td1" style="display:none; margin-top:20px;">
+    <iframe
+      src="solutions/td1_solution.html"
+      width="100%"
+      height="900"
+      style="border:1px solid #ccc; border-radius:6px;">
+    </iframe>
   </div>
+</div>
 </section>
 
 <!-- ================= TD 02 ================= -->

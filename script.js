@@ -78,7 +78,7 @@ videoLinks.forEach(link => {
 
 // ================== Attendance ==================
 const g07Students = [
-  "Allouche Mohammed Abdellah","Ben Amor Lokmane","Benabderrahmane Tahhil Fadjer",
+  "Allouche Mohammed Abdellah","Belaid Mail","Ben Amor Lokmane","Benabderrahmane Tahhil Fadjer",
   "Benkaddour Abdelkader Mahieddine","Berziga Mohamed","Boughara Achraf","Bousba Aymen",
   "Chellali Abdessalam","Dib Nesrine","Guadi Zahra","Kadri Mourad","Khettar Azouaou",
   "Lidi Moussa Mohamed Yacine","Maouche Abdelhak","Messaoudene Chouaib","Necibdia Abdelmouay",
@@ -86,10 +86,10 @@ const g07Students = [
 ];
 
 const g08Students = [
-  "Abderrezek Akram","Ameziane Sid-Ali","Belaidi Abdellatif","Ben Amor Lakmone","Benadjiel Wissam",
+  "Abderrezek Akram","Ameziane Sid-Ali","Belaidi Abdellatif","Benadjiel Wissam",
   "Benali Abdallah Merouane","Benguessoum Mohamed Arezki","BENKEZIM Sofiane","Biou Mohamed Amine",
   "Bouhealouane Faiz","Bouska Chokri","Bouzar Dilmi Djihad","Chendri Zakaria","Dilmi Anes",
-  "Guehaz Sifeddine","Khattab Ilyes Abdelaziz","Khiat Sarra","Larbi Maria","Mazouzi Kadil",
+  "Guehaz Sifeddine","Hamzaoui Dina","Khattab Ilyes Abdelaziz","Khiat Sarra","Larbi Maria","Mazouzi Hadil",
   "Mezghrani Dalia","Rachidi Zakaria","Seddiki Khouloud","Smail Ziad","Yahiaoui Hamza","Ziouar Khaoula"
 ];
 

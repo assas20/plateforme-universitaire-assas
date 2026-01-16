@@ -103,10 +103,526 @@
   </div>
   <div class="solution">
     <h3>Solutions</h3>
-    <ul>
-      <li><a href="solutions/td1_solution1.pdf" target="_blank">Solution Exercice 1</a></li>
-      <li><a href="solutions/td1_solution2.pdf" target="_blank">Solution Exercice 2</a></li>
-    </ul>
+    <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Solution - Mathematical Tools</title>
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']],
+            macros: {
+              vec: ["{\\overrightarrow{#1}}", 1],
+              deriv: ["{\\frac{d#1}{dt}}", 1]
+            }
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css">
+    <style>
+        body {
+            font-family: "Computer Modern Sans", sans-serif;
+            line-height: 1.3;
+            margin: 1em;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        h1, h2, h3, p {
+            margin-top: 0.2em;
+            margin-bottom: 0.2em;
+        }
+        h1 { font-size: 1.8em; text-align: center; border-bottom: 2px solid #003366; margin-bottom: 0.8em; font-family: "Computer Modern Serif", serif;}
+        h2 { font-size: 1.5em; font-family: "Computer Modern Serif", serif;}
+        h3 { font-size: 1.2em; border-bottom: none; color: #0055A4; font-family: "Computer Modern Serif", serif;}
+        mjx-container {
+            font-size: 105% !important;
+            text-align: left !important;
+            margin-top: 0.4em;
+            margin-bottom: 0.4em;
+        }
+        .math-display {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            padding: 0.4em;
+            background-color: #f8f8f8;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            overflow-x: visible;
+        }
+        ul { margin-top: 0.3em; margin-bottom: 0.3em; margin-left: 0; padding-left: 1.5em; }
+        li { margin-bottom: 0.2em; }
+        strong { color: #003366; }
+        .question {
+            font-weight: bold;
+            color: #D2691E;
+        }
+        .solution-branch {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid black;
+            margin-left: 10px;
+            padding-bottom: 0.1em;
+        }
+        .solution-branch:not(:last-child) {
+            padding-bottom: 1.2em;
+        }
+        .solution-branch > .question {
+            position: relative;
+            margin-top: 0;
+        }
+        .solution-branch > .question::before {
+            content: "";
+            position: absolute;
+            background-color: black;
+            height: 2px;
+            width: 18px;
+            left: -25px;
+            top: 0.8em;
+        }
+        .sub-branch {
+            position: relative;
+            padding-left: 20px;
+            border-left: 1px solid black;
+            margin-left: 5px;
+            padding-top: 0.3em;
+            padding-bottom: 0.1em;
+        }
+        .sub-branch:not(:last-child) {
+            padding-bottom: 0.4em;
+        }
+        .sub-branch > h3 {
+            position: relative;
+            margin-top: 0;
+        }
+        .sub-branch > h3::before {
+            content: "";
+            position: absolute;
+            background-color: black;
+            height: 1px;
+            width: 15px;
+            left: -20px;
+            top: 0.6em;
+        }
+
+        /* Language Toggle Styles */
+        #language-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+            width: 65px; /* Smaller width */
+            height: 28px; /* Smaller height */
+            background-color: #e9ecef;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .toggle-button {
+            width: 22px;
+            height: 22px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            transition: left 0.3s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #adb5bd;
+        }
+
+        .toggle-text {
+            font-family: "Arial", sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            color: #495057;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* State for EN (default/not active) */
+        #language-toggle .toggle-button {
+            left: 3px;
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2MDAiIHZpZXdCb3g9IjAgMCA2MCAzMCI+DQo8Y2xpcFBhdGggaWQ9ImEiPg0KPHBhdGggZD0iTTMwLDAgVjE1IEg2MCBWMEEiLz4NCjwvY2xpcFBhdGg+DQo8Y2xpcFBhdGggaWQ9ImIiPg0KPHBhdGggZD0iTTAsMTUgSDMwIFYzMCBIMFYxNU0zMCwwIEg2MCBWMTUgSDMwVjBNMCwwIEgzMCBWMTAgSDBWMCIvPg0KPC9jbGlwUGF0aD4NCjxwYXRoIGQ9Ik0wLDAgVjMwIEg2MCBWMEEiIGZpbGw9IiMwMDI0N0QiLz4NCjxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSI2IiBkPSJNMzAsMCA2MCwxNSAwLDE1IE0zMCwzMCAwLDE1IDYwLDE1Ii8+DQo8cGF0aCBzdHJva2U9IiNDRjE0MkIiIHN0cm9rZS13aWR0aD0iNCIgZD0iTTAgMCA2MCAzME0wIDMwIDYwIDAiLz4NCjxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxMCIgZD0iTTMwLDAgVjMwIi8+DQo8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS13aWR0aD0iMTgiIGQ9Ik0wLDE1IEg2MCIvPg0KPHBhdGggc3Ryb2tlPSIjQ0YxNDJCIiBzdHJva2Utd2lkdGg9IjYiIGQ9Ik0zMCwwIFYzMCIvPg0KPHBhdGggc3Ryb2tlPSIjQ0YxNDJCIiBzdHJva2Utd2lkdGg9IjEwIiBkPSJNLTEsMTUgSDYxIi8+DQo8L3N2Zz4=');
+        }
+        #language-toggle .toggle-text {
+            right: 12px;
+        }
+
+        /* State for FR (active) */
+        #language-toggle.active .toggle-button {
+            left: calc(100% - 22px - 3px);
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDU1QTEiLz48cmVjdCB4PSIxIiB3aWR0aD0iMSIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGIi8+PHJlY3QgeD0iMiIgd2lkdGg9IjEiIGhlaWdodD0iMiIgZmlsbD0iI0VEMjlENSIvPjwvc3ZnPg==');
+        }
+        #language-toggle.active .toggle-text {
+            left: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="language-toggle">
+        <div class="toggle-button"></div>
+        <span class="toggle-text">EN</span>
+    </div>
+
+    <div id="fr-version" lang="fr" style="display:none;">
+        <h1>Mécanique Rationnelle - Corrigé des Exercices</h1>
+        <p style="text-align:center; font-family: 'Computer Modern Serif', serif; color: #555; margin-top:-0.5em; margin-bottom:1.5em;">Outils Mathématiques: Analyse Vectorielle</p>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercice 01 : Vecteur défini par deux points</h2>
+            <p><strong>Données :</strong> Points \(A(2, 3, -3)\) et \(B(5, 7, 2)\).</p>
+            <div class="sub-branch">
+                <h3>Définition : Composantes et Module d'un vecteur</h3>
+                <p>Un vecteur \(\vec{AB}\) est défini par la différence des coordonnées de ses points d'arrivée (B) et de départ (A). Son module (ou norme), noté \(||\vec{AB}||\), représente sa longueur et est calculé par la généralisation du théorème de Pythagore à trois dimensions.</p>
+            </div>
+            <div class="sub-branch">
+                <h3>Étape 1 : Calcul des composantes</h3>
+                <p>Les composantes du vecteur \(\vec{AB}\) sont obtenues comme suit :</p>
+                <div class="math-display">\[ \vec{AB} = (x_B - x_A)\vec{i} + (y_B - y_A)\vec{j} + (z_B - z_A)\vec{k} \]</div>
+                <div class="math-display">\[ \vec{AB} = (5 - 2)\vec{i} + (7 - 3)\vec{j} + (2 - (-3))\vec{k} = 3\vec{i} + 4\vec{j} + 5\vec{k} \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>Étape 2 : Calcul du module (Norme)</h3>
+                <p>Le module est la racine carrée de la somme des carrés de ses composantes.</p>
+                <div class="math-display">\[ ||\vec{AB}|| = \sqrt{3^2 + 4^2 + 5^2} = \sqrt{9 + 16 + 25} = \sqrt{50} = 5\sqrt{2} \approx 7.07 \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>Étape 3 : Détermination de la direction (Cosinus directeurs)</h3>
+                <p>La direction est définie par les angles \(\alpha, \beta, \gamma\) que le vecteur forme avec les axes Ox, Oy, Oz. Ces angles sont trouvés via les cosinus directeurs.</p>
+                <div class="math-display">\[ \cos \alpha = \frac{AB_x}{||\vec{AB}||} = \frac{3}{\sqrt{50}} \approx 0.424 \implies \alpha \approx 64.9^\circ \]</div>
+                <div class="math-display">\[ \cos \beta = \frac{AB_y}{||\vec{AB}||} = \frac{4}{\sqrt{50}} \approx 0.566 \implies \beta \approx 55.5^\circ \]</div>
+                <div class="math-display">\[ \cos \gamma = \frac{AB_z}{||\vec{AB}||} = \frac{5}{\sqrt{50}} \approx 0.707 \implies \gamma \approx 45.0^\circ \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>Étape 4 : Détermination du sens</h3>
+                <p>Le sens du vecteur par rapport aux axes est donné par le signe de ses composantes. Ici, toutes les composantes (3, 4, 5) sont positives, donc le vecteur est orienté dans le sens positif des trois axes.</p>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercice 02 : Opérations sur les vecteurs</h2>
+            <p><strong>Données :</strong> \(\vec{u} = \begin{pmatrix} -8 \\ 2 \\ 5 \end{pmatrix}\), \(\vec{v} = \begin{pmatrix} 3 \\ -9 \\ -1 \end{pmatrix}\).</p>
+            <div class="sub-branch">
+                <h3>1. Modules des vecteurs</h3>
+                <div class="math-display">\[ ||\vec{u}|| = \sqrt{(-8)^2 + 2^2 + 5^2} = \sqrt{64 + 4 + 25} = \sqrt{93} \approx 9.64 \]</div>
+                <div class="math-display">\[ ||\vec{v}|| = \sqrt{3^2 + (-9)^2 + (-1)^2} = \sqrt{9 + 81 + 1} = \sqrt{91} \approx 9.54 \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>2. Produit scalaire</h3>
+                <p>Le produit scalaire est la somme des produits des composantes correspondantes.</p>
+                <div class="math-display">\[ \vec{u} \cdot \vec{v} = (-8)(3) + (2)(-9) + (5)(-1) = -24 - 18 - 5 = -47 \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>3. Produit vectoriel</h3>
+                <p>Le produit vectoriel est calculé à l'aide d'un déterminant formel.</p>
+                <div class="math-display">\[ \vec{u} \wedge \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ -8 & 2 & 5 \\ 3 & -9 & -1 \end{vmatrix} = \vec{i}(2(-1) - 5(-9)) - \vec{j}((-8)(-1) - 5(3)) + \vec{k}((-8)(-9) - 2(3)) \]</div>
+                <div class="math-display">\[ = 43\vec{i} + 7\vec{j} + 66\vec{k} \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>4. Cosinus directeurs des vecteurs unitaires</h3>
+                <p>Les cosinus directeurs d'un vecteur sont les composantes de son vecteur unitaire.</p>
+                <p>Pour \(\vec{u}\) : \(\hat{u} = \frac{\vec{u}}{||\vec{u}||} = \frac{1}{\sqrt{93}}(-8\vec{i} + 2\vec{j} + 5\vec{k})\).</p>
+                <ul>
+                    <li>\(\cos \alpha_u = -8/\sqrt{93}\)</li>
+                    <li>\(\cos \beta_u = 2/\sqrt{93}\)</li>
+                    <li>\(\cos \gamma_u = 5/\sqrt{93}\)</li>
+                </ul>
+                <p>Pour \(\vec{v}\) : \(\hat{v} = \frac{\vec{v}}{||\vec{v}||} = \frac{1}{\sqrt{91}}(3\vec{i} - 9\vec{j} - \vec{k})\).</p>
+                <ul>
+                    <li>\(\cos \alpha_v = 3/\sqrt{91}\)</li>
+                    <li>\(\cos \beta_v = -9/\sqrt{91}\)</li>
+                    <li>\(\cos \gamma_v = -1/\sqrt{91}\)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercice 03 : Colinéarité et Perpendicularité</h2>
+            <p><strong>Données :</strong> \(\vec{V}_1 = \vec{i} + 4\vec{k}\), \(\vec{V}_2 = 2\vec{i} + y\vec{j} + z\vec{k}\), \(\vec{V}_3 = \vec{i} - 2\vec{j} + 4\vec{k}\), \(\vec{V}_4 = 4\vec{i} + y\vec{j} + 2\vec{k}\).</p>
+            <div class="sub-branch">
+                <h3>1. Condition de colinéarité</h3>
+                <p>Deux vecteurs sont colinéaires si leurs composantes sont proportionnelles, c'est-à-dire \(\vec{V}_2 = k \vec{V}_1\) pour un scalaire \(k\).</p>
+                <div class="math-display">\[ \begin{pmatrix} 2 \\ y \\ z \end{pmatrix} = k \begin{pmatrix} 1 \\ 0 \\ 4 \end{pmatrix} \implies \begin{cases} 2 = k \cdot 1 \\ y = k \cdot 0 \\ z = k \cdot 4 \end{cases} \]</div>
+                <p>De la première équation, \(k=2\). En substituant dans les autres, on trouve \(y = 2 \cdot 0 = 0\) et \(z = 2 \cdot 4 = 8\).</p>
+            </div>
+            <div class="sub-branch">
+                <h3>2. Condition de perpendicularité</h3>
+                <p>Deux vecteurs sont perpendiculaires (orthogonaux) si leur produit scalaire est nul (\(\vec{V}_3 \cdot \vec{V}_4 = 0\)).</p>
+                <div class="math-display">\[ (\vec{i} - 2\vec{j} + 4\vec{k}) \cdot (4\vec{i} + y\vec{j} + 2\vec{k}) = 0 \]</div>
+                <div class="math-display">\[ (1)(4) + (-2)(y) + (4)(2) = 0 \implies 4 - 2y + 8 = 0 \implies 12 = 2y \implies y = 6 \]</div>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercice 04 : Application de vecteur unitaire</h2>
+            <p><strong>Données :</strong> \(A(3, 7, -2)\), \(B(0, 5, 1)\), \(C(-2, 2, 4)\). Trouver \(D(x, y, z)\) tel que \(\vec{CD}\) est le vecteur unitaire de \(\vec{AB}\).</p>
+            <div class="sub-branch">
+                <h3>Étape 1 : Calculer le vecteur \(\vec{AB}\) et son module</h3>
+                <div class="math-display">\[ \vec{AB} = (0-3)\vec{i} + (5-7)\vec{j} + (1-(-2))\vec{k} = -3\vec{i} - 2\vec{j} + 3\vec{k} \]</div>
+                <div class="math-display">\[ ||\vec{AB}|| = \sqrt{(-3)^2 + (-2)^2 + 3^2} = \sqrt{9+4+9} = \sqrt{22} \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>Étape 2 : Déterminer le vecteur unitaire de \(\vec{AB}\)</h3>
+                <div class="math-display">\[ \hat{u}_{AB} = \frac{\vec{AB}}{||\vec{AB}||} = \frac{1}{\sqrt{22}}(-3\vec{i} - 2\vec{j} + 3\vec{k}) \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>Étape 3 : Résoudre pour le point D</h3>
+                <p>On pose \(\vec{CD} = \hat{u}_{AB}\). Le vecteur \(\vec{CD}\) s'exprime par \((x - (-2))\vec{i} + (y - 2)\vec{j} + (z - 4)\vec{k}\).</p>
+                <div class="math-display">\[ (x+2)\vec{i} + (y-2)\vec{j} + (z-4)\vec{k} = -\frac{3}{\sqrt{22}}\vec{i} - \frac{2}{\sqrt{22}}\vec{j} + \frac{3}{\sqrt{22}}\vec{k} \]</div>
+                <p>En égalant les composantes :</p>
+                <div class="math-display">\[ \begin{cases} x+2 = -3/\sqrt{22} \implies x = -2 - 3/\sqrt{22} \\ y-2 = -2/\sqrt{22} \implies y = 2 - 2/\sqrt{22} \\ z-4 = 3/\sqrt{22} \implies z = 4 + 3/\sqrt{22} \end{cases} \]</div>
+                <p>Le point D a pour coordonnées \( D(-2 - \frac{3}{\sqrt{22}}, 2 - \frac{2}{\sqrt{22}}, 4 + \frac{3}{\sqrt{22}}) \).</p>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercice 05 : Dérivée de produits de vecteurs</h2>
+            <p><strong>Données :</strong> \(\vec{P} = 2t\vec{i} + 5t^2\vec{j} - 7t^3\vec{k}\) et \(\vec{Q} = -4t^3\vec{i} + 10t^2\vec{j} - 2t\vec{k}\).</p>
+            <div class="sub-branch">
+                <h3>1. Vérification de la règle du produit scalaire</h3>
+                <p>On veut vérifier \(\deriv(\vec{P} \cdot \vec{Q}) = \deriv{\vec{P}} \cdot \vec{Q} + \vec{P} \cdot \deriv{\vec{Q}}\).</p>
+                <ul>
+                    <li><strong>Côté gauche (LHS) :</strong>
+                        <p>\(\vec{P} \cdot \vec{Q} = (2t)(-4t^3) + (5t^2)(10t^2) + (-7t^3)(-2t) = -8t^4 + 50t^4 + 14t^4 = 56t^4\).</p>
+                        <p>\(\deriv(56t^4) = 224t^3\).</p>
+                    </li>
+                    <li><strong>Côté droit (RHS) :</strong>
+                        <p>\(\deriv{\vec{P}} = 2\vec{i} + 10t\vec{j} - 21t^2\vec{k}\) et \(\deriv{\vec{Q}} = -12t^2\vec{i} + 20t\vec{j} - 2\vec{k}\).</p>
+                        <p>\(\deriv{\vec{P}} \cdot \vec{Q} = (2)(-4t^3) + (10t)(10t^2) + (-21t^2)(-2t) = -8t^3 + 100t^3 + 42t^3 = 134t^3\).</p>
+                        <p>\(\vec{P} \cdot \deriv{\vec{Q}} = (2t)(-12t^2) + (5t^2)(20t) + (-7t^3)(-2) = -24t^3 + 100t^3 + 14t^3 = 90t^3\).</p>
+                        <p>RHS = \(134t^3 + 90t^3 = 224t^3\).</p>
+                    </li>
+                </ul>
+                <p>LHS = RHS, la relation est vérifiée.</p>
+            </div>
+            <div class="sub-branch">
+                <h3>2. Vérification de la règle du produit vectoriel</h3>
+                <p>On veut vérifier \(\deriv(\vec{P} \wedge \vec{Q}) = \deriv{\vec{P}} \wedge \vec{Q} + \vec{P} \wedge \deriv{\vec{Q}}\).</p>
+                <ul>
+                    <li><strong>Côté gauche (LHS) :</strong>
+                        <p>\(\vec{P} \wedge \vec{Q} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2t & 5t^2 & -7t^3 \\ -4t^3 & 10t^2 & -2t \end{vmatrix} = (70t^5 - 10t^3)\vec{i} + (28t^6 + 4t^2)\vec{j} + (20t^5 + 20t^3)\vec{k}\).</p>
+                        <p>\(\deriv(\vec{P} \wedge \vec{Q}) = (350t^4 - 30t^2)\vec{i} + (168t^5 + 8t)\vec{j} + (100t^4 + 60t^2)\vec{k}\).</p>
+                    </li>
+                    <li><strong>Côté droit (RHS) :</strong>
+                        <p>\(\deriv{\vec{P}} = 2\vec{i} + 10t\vec{j} - 21t^2\vec{k}\).</p>
+                         <p>\(\deriv{\vec{Q}} = -12t^2\vec{i} + 20t\vec{j} - 2\vec{k}\).</p>
+                        <p>\(\deriv{\vec{P}} \wedge \vec{Q} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 10t & -21t^2 \\ -4t^3 & 10t^2 & -2t \end{vmatrix} = (210t^4 - 20t^2)\vec{i} + (84t^5 + 4t)\vec{j} + (40t^4 + 20t^2)\vec{k}\).</p>
+                        <p>\(\vec{P} \wedge \deriv{\vec{Q}} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2t & 5t^2 & -7t^3 \\ -12t^2 & 20t & -2 \end{vmatrix} = (140t^4 - 10t^2)\vec{i} + (84t^5 + 4t)\vec{j} + (60t^4 + 40t^2)\vec{k}\).</p>
+                        <p>RHS = \( (210t^4 - 20t^2 + 140t^4 - 10t^2)\vec{i} + (84t^5 + 4t + 84t^5 + 4t)\vec{j} + (40t^4 + 20t^2 + 60t^4 + 40t^2)\vec{k}\)</p>
+                        <p>RHS = \( (350t^4 - 30t^2)\vec{i} + (168t^5 + 8t)\vec{j} + (100t^4 + 60t^2)\vec{k}\).</p>
+                    </li>
+                </ul>
+                <p>LHS = RHS, la relation est vérifiée.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="en-version" lang="en">
+        <h1>Rational Mechanics - Solution to Exercises</h1>
+        <p style="text-align:center; font-family: 'Computer Modern Serif', serif; color: #555; margin-top:-0.5em; margin-bottom:1.5em;">Mathematical Tools: Vector Analysis</p>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercise 01: Vector defined by two points</h2>
+            <p><strong>Given:</strong> Points \(A(2, 3, -3)\) and \(B(5, 7, 2)\).</p>
+            <div class="sub-branch">
+                <h3>Definition: Components and Magnitude of a vector</h3>
+                <p>A vector \(\vec{AB}\) is defined by the difference in the coordinates of its endpoint (B) and starting point (A). Its magnitude (or norm), denoted \(||\vec{AB}||\), represents its length and is calculated by extending the Pythagorean theorem to three dimensions.</p>
+            </div>
+            <div class="sub-branch">
+                <h3>Step 1: Calculating the components</h3>
+                <p>The components of the vector \(\vec{AB}\) are obtained as follows:</p>
+                <div class="math-display">\[ \vec{AB} = (x_B - x_A)\vec{i} + (y_B - y_A)\vec{j} + (z_B - z_A)\vec{k} \]</div>
+                <div class="math-display">\[ \vec{AB} = (5 - 2)\vec{i} + (7 - 3)\vec{j} + (2 - (-3))\vec{k} = 3\vec{i} + 4\vec{j} + 5\vec{k} \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>Step 2: Calculating the magnitude (Norm)</h3>
+                <p>The magnitude is the square root of the sum of the squares of its components.</p>
+                <div class="math-display">\[ ||\vec{AB}|| = \sqrt{3^2 + 4^2 + 5^2} = \sqrt{9 + 16 + 25} = \sqrt{50} = 5\sqrt{2} \approx 7.07 \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>Step 3: Determining the direction (Direction Cosines)</h3>
+                <p>The direction is defined by the angles \(\alpha, \beta, \gamma\) that the vector forms with the Ox, Oy, Oz axes. These angles are found via the direction cosines.</p>
+                <div class="math-display">\[ \cos \alpha = \frac{AB_x}{||\vec{AB}||} = \frac{3}{\sqrt{50}} \approx 0.424 \implies \alpha \approx 64.9^\circ \]</div>
+                <div class="math-display">\[ \cos \beta = \frac{AB_y}{||\vec{AB}||} = \frac{4}{\sqrt{50}} \approx 0.566 \implies \beta \approx 55.5^\circ \]</div>
+                <div class="math-display">\[ \cos \gamma = \frac{AB_z}{||\vec{AB}||} = \frac{5}{\sqrt{50}} \approx 0.707 \implies \gamma \approx 45.0^\circ \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>Step 4: Determining the sense</h3>
+                <p>The sense of the vector with respect to the axes is given by the sign of its components. Here, all components (3, 4, 5) are positive, so the vector is oriented in the positive direction of all three axes.</p>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercise 02: Operations on vectors</h2>
+            <p><strong>Given:</strong> \(\vec{u} = \begin{pmatrix} -8 \\ 2 \\ 5 \end{pmatrix}\), \(\vec{v} = \begin{pmatrix} 3 \\ -9 \\ -1 \end{pmatrix}\).</p>
+            <div class="sub-branch">
+                <h3>1. Magnitudes of the vectors</h3>
+                <div class="math-display">\[ ||\vec{u}|| = \sqrt{(-8)^2 + 2^2 + 5^2} = \sqrt{64 + 4 + 25} = \sqrt{93} \approx 9.64 \]</div>
+                <div class="math-display">\[ ||\vec{v}|| = \sqrt{3^2 + (-9)^2 + (-1)^2} = \sqrt{9 + 81 + 1} = \sqrt{91} \approx 9.54 \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>2. Scalar product</h3>
+                <p>The scalar product is the sum of the products of the corresponding components.</p>
+                <div class="math-display">\[ \vec{u} \cdot \vec{v} = (-8)(3) + (2)(-9) + (5)(-1) = -24 - 18 - 5 = -47 \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>3. Vector product</h3>
+                <p>The vector product is calculated using a formal determinant.</p>
+                <div class="math-display">\[ \vec{u} \wedge \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ -8 & 2 & 5 \\ 3 & -9 & -1 \end{vmatrix} = \vec{i}(2(-1) - 5(-9)) - \vec{j}((-8)(-1) - 5(3)) + \vec{k}((-8)(-9) - 2(3)) \]</div>
+                <div class="math-display">\[ = 43\vec{i} + 7\vec{j} + 66\vec{k} \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>4. Direction cosines of the unit vectors</h3>
+                <p>The direction cosines of a vector are the components of its unit vector.</p>
+                <p>For \(\vec{u}\) : \(\hat{u} = \frac{\vec{u}}{||\vec{u}||} = \frac{1}{\sqrt{93}}(-8\vec{i} + 2\vec{j} + 5\vec{k})\).</p>
+                <ul>
+                    <li>\(\cos \alpha_u = -8/\sqrt{93}\)</li>
+                    <li>\(\cos \beta_u = 2/\sqrt{93}\)</li>
+                    <li>\(\cos \gamma_u = 5/\sqrt{93}\)</li>
+                </ul>
+                <p>For \(\vec{v}\) : \(\hat{v} = \frac{\vec{v}}{||\vec{v}||} = \frac{1}{\sqrt{91}}(3\vec{i} - 9\vec{j} - \vec{k})\).</p>
+                <ul>
+                    <li>\(\cos \alpha_v = 3/\sqrt{91}\)</li>
+                    <li>\(\cos \beta_v = -9/\sqrt{91}\)</li>
+                    <li>\(\cos \gamma_v = -1/\sqrt{91}\)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercise 03: Collinearity and Perpendicularity</h2>
+            <p><strong>Given:</strong> \(\vec{V}_1 = \vec{i} + 4\vec{k}\), \(\vec{V}_2 = 2\vec{i} + y\vec{j} + z\vec{k}\), \(\vec{V}_3 = \vec{i} - 2\vec{j} + 4\vec{k}\), \(\vec{V}_4 = 4\vec{i} + y\vec{j} + 2\vec{k}\).</p>
+            <div class="sub-branch">
+                <h3>1. Condition for collinearity</h3>
+                <p>Two vectors are collinear if their components are proportional, i.e., \(\vec{V}_2 = k \vec{V}_1\) for some scalar \(k\).</p>
+                <div class="math-display">\[ \begin{pmatrix} 2 \\ y \\ z \end{pmatrix} = k \begin{pmatrix} 1 \\ 0 \\ 4 \end{pmatrix} \implies \begin{cases} 2 = k \cdot 1 \\ y = k \cdot 0 \\ z = k \cdot 4 \end{cases} \]</div>
+                <p>From the first equation, \(k=2\). Substituting into the others, we find \(y = 2 \cdot 0 = 0\) and \(z = 2 \cdot 4 = 8\).</p>
+            </div>
+            <div class="sub-branch">
+                <h3>2. Condition for perpendicularity</h3>
+                <p>Two vectors are perpendicular (orthogonal) if their scalar product is zero (\(\vec{V}_3 \cdot \vec{V}_4 = 0\)).</p>
+                <div class="math-display">\[ (\vec{i} - 2\vec{j} + 4\vec{k}) \cdot (4\vec{i} + y\vec{j} + 2\vec{k}) = 0 \]</div>
+                <div class="math-display">\[ (1)(4) + (-2)(y) + (4)(2) = 0 \implies 4 - 2y + 8 = 0 \implies 12 = 2y \implies y = 6 \]</div>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercise 04: Unit vector application</h2>
+            <p><strong>Given:</strong> \(A(3, 7, -2)\), \(B(0, 5, 1)\), \(C(-2, 2, 4)\). Find point \(D(x, y, z)\) such that \(\vec{CD}\) is the unit vector of \(\vec{AB}\).</p>
+            <div class="sub-branch">
+                <h3>Step 1: Calculate the vector \(\vec{AB}\) and its magnitude</h3>
+                <div class="math-display">\[ \vec{AB} = (0-3)\vec{i} + (5-7)\vec{j} + (1-(-2))\vec{k} = -3\vec{i} - 2\vec{j} + 3\vec{k} \]</div>
+                <div class="math-display">\[ ||\vec{AB}|| = \sqrt{(-3)^2 + (-2)^2 + 3^2} = \sqrt{9+4+9} = \sqrt{22} \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>Step 2: Determine the unit vector of \(\vec{AB}\)</h3>
+                <div class="math-display">\[ \hat{u}_{AB} = \frac{\vec{AB}}{||\vec{AB}||} = \frac{1}{\sqrt{22}}(-3\vec{i} - 2\vec{j} + 3\vec{k}) \]</div>
+            </div>
+            <div class="sub-branch">
+                <h3>Step 3: Solve for point D</h3>
+                <p>We set \(\vec{CD} = \hat{u}_{AB}\). The vector \(\vec{CD}\) is expressed as \((x - (-2))\vec{i} + (y - 2)\vec{j} + (z - 4)\vec{k}\).</p>
+                <div class="math-display">\[ (x+2)\vec{i} + (y-2)\vec{j} + (z-4)\vec{k} = -\frac{3}{\sqrt{22}}\vec{i} - \frac{2}{\sqrt{22}}\vec{j} + \frac{3}{\sqrt{22}}\vec{k} \]</div>
+                <p>By equating the components:</p>
+                <div class="math-display">\[ \begin{cases} x+2 = -3/\sqrt{22} \implies x = -2 - 3/\sqrt{22} \\ y-2 = -2/\sqrt{22} \implies y = 2 - 2/\sqrt{22} \\ z-4 = 3/\sqrt{22} \implies z = 4 + 3/\sqrt{22} \end{cases} \]</div>
+                <p>The coordinates of point D are \( D(-2 - \frac{3}{\sqrt{22}}, 2 - \frac{2}{\sqrt{22}}, 4 + \frac{3}{\sqrt{22}}) \).</p>
+            </div>
+        </div>
+
+        <div class="solution-branch">
+            <h2 class="question">Exercise 05: Derivative of vector products</h2>
+            <p><strong>Given:</strong> \(\vec{P} = 2t\vec{i} + 5t^2\vec{j} - 7t^3\vec{k}\) and \(\vec{Q} = -4t^3\vec{i} + 10t^2\vec{j} - 2t\vec{k}\).</p>
+            <div class="sub-branch">
+                <h3>1. Verification of the scalar product rule</h3>
+                <p>We want to verify \(\deriv(\vec{P} \cdot \vec{Q}) = \deriv{\vec{P}} \cdot \vec{Q} + \vec{P} \cdot \deriv{\vec{Q}}\).</p>
+                <ul>
+                    <li><strong>Left-hand side (LHS):</strong>
+                        <p>\(\vec{P} \cdot \vec{Q} = (2t)(-4t^3) + (5t^2)(10t^2) + (-7t^3)(-2t) = -8t^4 + 50t^4 + 14t^4 = 56t^4\).</p>
+                        <p>\(\deriv(56t^4) = 224t^3\).</p>
+                    </li>
+                    <li><strong>Right-hand side (RHS):</strong>
+                        <p>\(\deriv{\vec{P}} = 2\vec{i} + 10t\vec{j} - 21t^2\vec{k}\) and \(\deriv{\vec{Q}} = -12t^2\vec{i} + 20t\vec{j} - 2\vec{k}\).</p>
+                        <p>\(\deriv{\vec{P}} \cdot \vec{Q} = (2)(-4t^3) + (10t)(10t^2) + (-21t^2)(-2t) = -8t^3 + 100t^3 + 42t^3 = 134t^3\).</p>
+                        <p>\(\vec{P} \cdot \deriv{\vec{Q}} = (2t)(-12t^2) + (5t^2)(20t) + (-7t^3)(-2) = -24t^3 + 100t^3 + 14t^3 = 90t^3\).</p>
+                        <p>RHS = \(134t^3 + 90t^3 = 224t^3\).</p>
+                    </li>
+                </ul>
+                <p>LHS = RHS, the relationship is verified.</p>
+            </div>
+            <div class="sub-branch">
+                <h3>2. Verification of the vector product rule</h3>
+                <p>We want to verify \(\deriv(\vec{P} \wedge \vec{Q}) = \deriv{\vec{P}} \wedge \vec{Q} + \vec{P} \wedge \deriv{\vec{Q}}\).</p>
+                <ul>
+                    <li><strong>Left-hand side (LHS):</strong>
+                        <p>\(\vec{P} \wedge \vec{Q} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2t & 5t^2 & -7t^3 \\ -4t^3 & 10t^2 & -2t \end{vmatrix} = (70t^5 - 10t^3)\vec{i} + (28t^6 + 4t^2)\vec{j} + (20t^5 + 20t^3)\vec{k}\).</p>
+                        <p>\(\deriv(\vec{P} \wedge \vec{Q}) = (350t^4 - 30t^2)\vec{i} + (168t^5 + 8t)\vec{j} + (100t^4 + 60t^2)\vec{k}\).</p>
+                    </li>
+                    <li><strong>Right-hand side (RHS):</strong>
+                        <p>\(\deriv{\vec{P}} = 2\vec{i} + 10t\vec{j} - 21t^2\vec{k}\).</p>
+                        <p>\(\deriv{\vec{Q}} = -12t^2\vec{i} + 20t\vec{j} - 2\vec{k}\).</p>
+                        <p>\(\deriv{\vec{P}} \wedge \vec{Q} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2 & 10t & -21t^2 \\ -4t^3 & 10t^2 & -2t \end{vmatrix} = (210t^4 - 20t^2)\vec{i} + (84t^5 + 4t)\vec{j} + (40t^4 + 20t^2)\vec{k}\).</p>
+                        <p>\(\vec{P} \wedge \deriv{\vec{Q}} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 2t & 5t^2 & -7t^3 \\ -12t^2 & 20t & -2 \end{vmatrix} = (140t^4 - 10t^2)\vec{i} + (84t^5 + 4t)\vec{j} + (60t^4 + 40t^2)\vec{k}\).</p>
+                        <p>RHS = \( (210t^4 - 20t^2 + 140t^4 - 10t^2)\vec{i} + (84t^5 + 4t + 84t^5 + 4t)\vec{j} + (40t^4 + 20t^2 + 60t^4 + 40t^2)\vec{k}\)</p>
+                        <p>RHS = \( (350t^4 - 30t^2)\vec{i} + (168t^5 + 8t)\vec{j} + (100t^4 + 60t^2)\vec{k}\).</p>
+                    </li>
+                </ul>
+                <p>LHS = RHS, the relationship is verified.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const toggle = document.getElementById('language-toggle');
+            const toggleText = toggle.querySelector('.toggle-text');
+            const frVersion = document.getElementById('fr-version');
+            const enVersion = document.getElementById('en-version');
+
+            // Function to set the page state based on language
+            function setLanguage(lang) {
+                if (lang === 'fr') {
+                    frVersion.style.display = 'block';
+                    enVersion.style.display = 'none';
+                    toggle.classList.add('active');
+                    toggleText.textContent = 'FR';
+                } else { // 'en'
+                    frVersion.style.display = 'none';
+                    enVersion.style.display = 'block';
+                    toggle.classList.remove('active');
+                    toggleText.textContent = 'EN';
+                }
+            }
+            
+            // Event listener for the toggle click
+            toggle.addEventListener('click', () => {
+                // Check current state by looking at the class
+                const isFrench = toggle.classList.contains('active');
+                if (isFrench) {
+                    setLanguage('en');
+                } else {
+                    setLanguage('fr');
+                }
+            });
+
+            // Set initial state to English on page load
+            setLanguage('en'); 
+        });
+    </script>
   </div>
 </section>
 
